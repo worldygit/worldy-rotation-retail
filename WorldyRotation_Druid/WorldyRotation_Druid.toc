@@ -1,0 +1,18 @@
+## Interface: 100107
+
+## Title: Worldy|cFFA330C9Rotation|r [|cFFFF7C0ADruid|r]
+## Author: Worldy
+## Notes: Worldy Rotation - Druid Module.
+
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: WorldyRotation
+
+Settings.lua
+Druid.lua
+Events.lua
+Balance.lua
+Feral.lua
+Guardian.lua
+Restoration.lua
+Overrides.lua

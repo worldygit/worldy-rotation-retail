@@ -1,0 +1,16 @@
+## Interface: 100107
+
+## Title: Worldy|cFFA330C9Rotation|r [|cFFFFF569Rogue|r]
+## Author: Gabbz
+## Notes: Worldy Rotation - Rogue Module.
+
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: WorldyRotation
+
+Settings.lua
+Rogue.lua
+Events.lua
+Outlaw.lua
+Subtlety.lua
+Overrides.lua

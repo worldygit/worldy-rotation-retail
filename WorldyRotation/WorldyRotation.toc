@@ -1,0 +1,28 @@
+## Interface: 100107
+
+## Title: Worldy|cFFA330C9Rotation|r
+## Author: Worldy
+## Version: 10.0.7.01
+
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## Dependencies: HeroDBC, HeroLib
+## SavedVariables: WorldyRotationDB
+## SavedVariablesPerCharacter: WorldyRotationCharDB
+
+# WoW Lib Stuff
+Lib\LibStub\LibStub.lua
+
+# GUI
+Panels.lua
+
+# API
+Settings.lua
+Core.lua
+Events.lua
+
+# APL Commons
+Commons.lua
+
+# Main
+Main.lua

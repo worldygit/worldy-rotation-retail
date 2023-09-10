@@ -1,0 +1,17 @@
+## Interface: 100107
+
+## Title: Worldy|cFFA330C9Rotation|r [|cFFFFFFFFPriest|r]
+## Author: Worldy
+## Notes: Worldy Rotation - Priest Module.
+
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: WorldyRotation
+
+Settings.lua
+Priest.lua
+Events.lua
+Holy.lua
+Shadow.lua
+Discipline.lua
+Overrides.lua
