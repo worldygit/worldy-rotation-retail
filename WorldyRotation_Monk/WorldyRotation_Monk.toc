@@ -11,6 +11,7 @@
 Settings.lua
 Monk.lua
 Brewmaster.lua
+Mistweaver.lua
 Windwalker.lua
 Events.lua
 Overrides.lua
