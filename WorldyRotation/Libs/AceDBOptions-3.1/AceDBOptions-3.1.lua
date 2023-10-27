@@ -2,7 +2,7 @@
 -- @class file
 -- @name AceDBOptions-3.0
 -- @release $Id: AceDBOptions-3.0.lua 1304 2023-05-19 19:50:10Z nevcairiel $
-local ACEDBO_MAJOR, ACEDBO_MINOR = "AceDBOptions-3.0", 15
+local ACEDBO_MAJOR, ACEDBO_MINOR = "AceDBOptions-3.1", 15
 local AceDBOptions = LibStub:NewLibrary(ACEDBO_MAJOR, ACEDBO_MINOR)
 
 if not AceDBOptions then return end -- No upgrade needed
