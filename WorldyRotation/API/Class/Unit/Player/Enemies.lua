@@ -100,7 +100,7 @@ do
 
     local rangeCheck = rangeCheckByIdentifier[identifier]
     if not rangeCheck then
-      rangeCheck = function (thisUnit) return thisUnit:IsInSpellRange(thisSpell) end
+      rangeCheck = function (thisUnit) return thisUnit:IsSpellInRange(thisSpell) end
       rangeCheckByIdentifier[identifier] = rangeCheck
     end
     InsertAvailableUnits(enemiesTable, rangeCheck)
