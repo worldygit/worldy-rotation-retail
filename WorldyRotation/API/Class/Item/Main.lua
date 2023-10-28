@@ -172,18 +172,11 @@ function item:TimeSinceLastCast()
 end
 
 function item:HasStatAnyDps()
-  if not self:OnUseSpell() then return false end
-  local trinketAura = dbc.spellAuraStat[self:OnUseSpell():ID()]
-  if not trinketAura then return false end
-  return true
+  return dbc.spellAuraStat[self:OnUseSpell():ID()]
 end
 
 function item:HasUseBuff()
-  if not self:IsUsable() then return false end
-  if not self:OnUseSpell() then return false end
-  local trinketAura = dbc.spellAuraStat[self:OnUseSpell():ID()]
-  if not trinketAura then return false end
-  return true
+  return self:IsUsable() and self:HasStatAnyDps()
 end
 
 function item:BuffDuration()
