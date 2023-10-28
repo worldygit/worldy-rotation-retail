@@ -186,25 +186,46 @@ function api.Cast(object, outOfRange, immovable, offGCD)
     return false
   end
 
-  local bindingKey
+  local binding
   if spellID then
-    bindingKey = bind.spell[spellID].key
-    if not bindingKey then
-      WR:Print(object:Name() .. " is not bound. Please contact the rotation developer.")
+    binding = bind.spell[spellID]
+    if not binding then
+      local actionKey = bind.GetBindingKey(object)
+      if actionKey ~= nil then
+        WR.frames.root:SetBind(actionKey)
+        object.lastDisplayTime = GetTime()
+        return true
+      end
+      WR:Print(object:Name() .. " is not bound.")
+      return false
     end
   elseif itemID then
-    bindingKey = bind.item[itemID].key
-    if not bindingKey then
-      WR:Print(object:Name() .. " is not bound. Please contact the rotation developer.")
+    binding = bind.item[itemID]
+    if not binding then
+      local actionKey = bind.GetBindingKey(object)
+      if actionKey ~= nil then
+        WR.frames.root:SetBind(actionKey)
+        object.lastDisplayTime = GetTime()
+        return true
+      end
+      WR:Print(object:Name() .. " is not bound.")
+      return false
     end
   elseif macroID then
-    bindingKey = bind.macro[macroID].key
-    if not bindingKey then
-      WR:Print(object.macroID .. " is not bound. Please contact the rotation developer.")
+    binding = bind.macro[macroID]
+    if not binding then
+      local actionKey = bind.GetBindingKey(object)
+      if actionKey ~= nil then
+        WR.frames.root:SetBind(actionKey)
+        object.lastDisplayTime = GetTime()
+        return true
+      end
+      WR:Print(object.macroID .. " is not bound.")
+      return false
     end
   end
 
-  WR.frames.root:SetBind(bindingKey)
+  WR.frames.root:SetBind(binding.key)
   object.lastDisplayTime = GetTime()
   return true
 end
