@@ -124,10 +124,12 @@ Rotations\Priest\Holy.lua
 Rotations\Priest\Shadow.lua
 
 Rotations\Rogue\Main.lua
+Rotations\Rogue\Assassination.lua
 Rotations\Rogue\Outlaw.lua
 Rotations\Rogue\Subtlety.lua
 
 Rotations\Shaman\Main.lua
+Rotations\Shaman\Elemental.lua
 Rotations\Shaman\Enhancement.lua
 
 Rotations\Warlock\Main.lua
