@@ -95,6 +95,7 @@ Rotations\Druid\Guardian.lua
 Rotations\Druid\Restoration.lua
 
 Rotations\Evoker\Main.lua
+Rotations\Evoker\Augmentation.lua
 Rotations\Evoker\Devastation.lua
 Rotations\Evoker\Preservation.lua
 
