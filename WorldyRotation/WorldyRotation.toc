@@ -122,6 +122,7 @@ Rotations\Paladin\Retribution.lua
 Rotations\Priest\Main.lua
 Rotations\Priest\Discipline.lua
 Rotations\Priest\Holy.lua
+Rotations\Priest\Holy-experimental.lua
 Rotations\Priest\Shadow.lua
 
 Rotations\Rogue\Main.lua
