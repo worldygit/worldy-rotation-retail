@@ -1,4 +1,4 @@
--- Generated using WoW 10.2.0.52068 client data on 2023-11-07T14:13:36.222975.
+-- Generated using WoW 10.2.0.52129 client data on 2023-11-14T13:10:55.555801.
 WR.dbc.spellConduits = {
   [5] = 334993,
   [7] = 335010,
