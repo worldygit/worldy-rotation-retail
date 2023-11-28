@@ -1,4 +1,4 @@
--- Generated using WoW 10.2.0.52129 client data on 2023-11-14T13:10:55.555801.
+-- Generated using WoW 10.2.0.52188 client data on 2023-11-27T18:58:31.473059.
 WR.dbc.spellRPPM = {
   [5301] = {
     [0] = 3.0,
@@ -5647,7 +5647,7 @@ WR.dbc.spellRPPM = {
     [0] = 2.0,
   },
   [422891] = {
-    [0] = 1.5,
+    [0] = 2.5,
     [1] = true,
   },
   [422923] = {
