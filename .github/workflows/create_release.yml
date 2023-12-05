@@ -23,6 +23,9 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           source: ./worldyrotationretail.zip
           target: /usr/share/nginx/html/
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Update version
         uses: appleboy/ssh-action@master
         with:
@@ -30,4 +33,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: echo "${{ github.ref }}" > /usr/share/nginx/html/.version
+          script: echo "${{ steps.get_version.outputs.TAG }}" > /usr/share/nginx/html/.version
