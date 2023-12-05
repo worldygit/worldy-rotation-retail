@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-    - 'v*'
+    - '*'
 
 jobs:
   build:
@@ -11,34 +11,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
       - name: Zip Repository
         run: |
-          git archive --format zip --output release.zip HEAD
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release.zip
-          asset_name: release.zip
-          asset_content_type: application/zip
-      - name: Copy published artifact to server
+          git archive --format zip --output worldyrotationretail.zip HEAD
+      - name: Copy addon to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: ./release.zip
-          target: /usr/share/nginx/html/worldyrotationretail.zip
+          source: ./worldyrotationretail.zip
+          target: /usr/share/nginx/html/
+      - name: Update version
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: echo "${{ github.ref }}" > /usr/share/nginx/html/.version
