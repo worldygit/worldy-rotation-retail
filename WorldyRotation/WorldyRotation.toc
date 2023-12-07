@@ -101,6 +101,7 @@ Rotations\Evoker\Preservation.lua
 
 Rotations\Hunter\Main.lua
 Rotations\Hunter\BeastMastery.lua
+Rotations\Hunter\BeastMasteryGabbzTest.lua
 Rotations\Hunter\Marksmanship.lua
 Rotations\Hunter\Survival.lua
 
