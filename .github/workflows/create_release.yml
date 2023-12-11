@@ -25,7 +25,21 @@ jobs:
           target: /usr/share/nginx/html/worldy/retail/
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+      - name: Get the changelog
+        id: get_changelog
+        uses: loopwerk/tag-changelog@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_types: other,doc,chore
+      - name: Update changelog
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: echo "${{ steps.get_changelog.outputs.changes }}" > /usr/share/nginx/html/worldy/retail/.changelog
       - name: Update version
         uses: appleboy/ssh-action@master
         with:
@@ -33,4 +47,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: echo "${{ steps.get_version.outputs.TAG }}" > /usr/share/nginx/html/worldy/retail/.version
+          script: echo "${{ steps.get_version.outputs.version }}" > /usr/share/nginx/html/worldy/retail/.version
