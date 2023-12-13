@@ -1,4 +1,4 @@
--- Generated using WoW 10.2.0.52188 client data on 2023-11-27T18:58:31.473059.
+-- Generated using WoW 10.2.0.52393 client data on 2023-12-05T23:35:49.666813.
 WR.dbc.spellProjectileSpeed = {
   [11] = 35,
   [59] = 25,
@@ -27439,7 +27439,7 @@ WR.dbc.spellProjectileSpeed = {
   [428366] = 4,
   [428406] = 0,
   [428473] = 2,
-  [428478] = 1,
+  [428478] = 2,
   [428509] = 10,
   [428511] = 10,
   [428512] = 10,

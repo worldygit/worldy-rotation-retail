@@ -1,4 +1,4 @@
--- Generated using WoW 10.2.0.52188 client data on 2023-11-27T18:58:31.473059.
+-- Generated using WoW 10.2.0.52393 client data on 2023-12-05T23:35:49.666813.
 WR.dbc.itemSpell = {
   [17] = 7,
   [117] = 433,
