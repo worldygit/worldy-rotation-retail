@@ -113,6 +113,7 @@ Rotations\Mage\Frost.lua
 Rotations\Monk\Main.lua
 Rotations\Monk\Brewmaster.lua
 Rotations\Monk\Mistweaver.lua
+Rotations\Monk\GabbzMistweaverTest.lua
 Rotations\Monk\Windwalker.lua
 
 Rotations\Paladin\Main.lua
