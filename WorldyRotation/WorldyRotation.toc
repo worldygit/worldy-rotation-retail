@@ -63,7 +63,6 @@ API\Class\Unit\Player\Equipment.lua
 API\Class\Unit\Player\Instance.lua
 API\Class\Unit\Player\Power.lua
 API\Class\Unit\Player\Stat.lua
-API\Class\Unit\Player\Tank.lua
 API\Class\Unit\Player\Totem.lua
 API\Events\Main.lua
 API\Events\Action.lua
