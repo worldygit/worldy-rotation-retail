@@ -135,6 +135,7 @@ Rotations\Rogue\Subtlety.lua
 Rotations\Shaman\Main.lua
 Rotations\Shaman\Elemental.lua
 Rotations\Shaman\Enhancement.lua
+Rotations\Shaman\Restoration.lua
 
 Rotations\Warlock\Main.lua
 Rotations\Warlock\Affliction.lua
