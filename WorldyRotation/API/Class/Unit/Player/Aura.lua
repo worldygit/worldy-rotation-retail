@@ -1,1 +1,250 @@
-local v0=tonumber;local v1=string.byte;local v2=string.char;local v3=string.sub;local v4=string.gsub;local v5=string.rep;local v6=table.concat;local v7=table.insert;local v8=math.ldexp;local v9=getfenv or function()return _ENV;end ;local v10=setmetatable;local v11=pcall;local v12=select;local v13=unpack or table.unpack ;local v14=tonumber;local function v15(v16,v17,...)local v18=1;local v19;v16=v4(v3(v16,5),"..",function(v30)if (v1(v30,2)==79) then v19=v0(v3(v30,1,1));return "";else local v87=v2(v0(v30,16));if v19 then local v97=v5(v87,v19);v19=nil;return v97;else return v87;end end end);local function v20(v31,v32,v33)if v33 then local v88=(v31/(2^(v32-1)))%(2^(((v33-1) -(v32-1)) + 1)) ;return v88-(v88%1) ;else local v89=2^(v32-1) ;return (((v31%(v89 + v89))>=v89) and 1) or 0 ;end end local function v21()local v34=v1(v16,v18,v18);v18=v18 + 1 ;return v34;end local function v22()local v35,v36=v1(v16,v18,v18 + 2 );v18=v18 + 2 ;return (v36 * 256) + v35 ;end local function v23()local v37,v38,v39,v40=v1(v16,v18,v18 + 3 );v18=v18 + 4 ;return (v40 * 16777216) + (v39 * 65536) + (v38 * 256) + v37 ;end local function v24()local v41=v23();local v42=v23();local v43=1;local v44=(v20(v42,1,20) * (2^32)) + v41 ;local v45=v20(v42,21,31);local v46=((v20(v42,32)==1) and  -1) or 1 ;if (v45==0) then if (v44==0) then return v46 * 0 ;else v45=1;v43=0;end elseif (v45==2047) then return ((v44==0) and (v46 * (1/0))) or (v46 * NaN) ;end return v8(v46,v45-1023 ) * (v43 + (v44/(2^52))) ;end local function v25(v47)local v48;if  not v47 then v47=v23();if (v47==0) then return "";end end v48=v3(v16,v18,(v18 + v47) -1 );v18=v18 + v47 ;local v49={};for v63=1, #v48 do v49[v63]=v2(v1(v3(v48,v63,v63)));end return v6(v49);end local v26=v23;local function v27(...)return {...},v12("#",...);end local function v28()local v50={};local v51={};local v52={};local v53={v50,v51,nil,v52};local v54=v23();local v55={};for v65=1,v54 do local v66=v21();local v67;if (v66==1) then v67=v21()~=0 ;elseif (v66==2) then v67=v24();elseif (v66==3) then v67=v25();end v55[v65]=v67;end v53[3]=v21();for v69=1,v23() do local v70=v21();if (v20(v70,1,1)==0) then local v93=v20(v70,2,3);local v94=v20(v70,4,6);local v95={v22(),v22(),nil,nil};if (v93==0) then v95[3]=v22();v95[4]=v22();elseif (v93==1) then v95[3]=v23();elseif (v93==2) then v95[3]=v23() -(2^16) ;elseif (v93==3) then v95[3]=v23() -(2^16) ;v95[4]=v22();end if (v20(v94,1,1)==1) then v95[2]=v55[v95[2]];end if (v20(v94,2,2)==1) then v95[3]=v55[v95[3]];end if (v20(v94,3,3)==1) then v95[4]=v55[v95[4]];end v50[v69]=v95;end end for v71=1,v23() do v51[v71-1 ]=v28();end return v53;end local function v29(v57,v58,v59)local v60=v57[1];local v61=v57[2];local v62=v57[3];return function(...)local v73=v60;local v74=v61;local v75=v62;local v76=v27;local v77=1;local v78= -1;local v79={};local v80={...};local v81=v12("#",...) -1 ;local v82={};local v83={};for v90=0,v81 do if (v90>=v75) then v79[v90-v75 ]=v80[v90 + 1 ];else v83[v90]=v80[v90 + 1 ];end end local v84=(v81-v75) + 1 ;local v85;local v86;while true do v85=v73[v77];v86=v85[1];if (v86<=24) then if (v86<=11) then if (v86<=5) then if (v86<=2) then if (v86<=0) then v83[v85[2]]={};elseif (v86==1) then local v190=v85[2];do return v13(v83,v190,v190 + v85[3] );end else local v191=v85[2];local v192=v83[v191 + 2 ];local v193=v83[v191] + v192 ;v83[v191]=v193;if (v192>0) then if (v193<=v83[v191 + 1 ]) then v77=v85[3];v83[v191 + 3 ]=v193;end elseif (v193>=v83[v191 + 1 ]) then v77=v85[3];v83[v191 + 3 ]=v193;end end elseif (v86<=3) then local v115;local v116;v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v116=v85[2];v115=v83[v85[3]];v83[v116 + 1 ]=v115;v83[v116]=v115[v85[4]];v77=v77 + 1 ;v85=v73[v77];v116=v85[2];v83[v116]=v83[v116](v83[v116 + 1 ]);v77=v77 + 1 ;v85=v73[v77];if (v83[v85[2]]<v85[4]) then v77=v85[3];else v77=v77 + 1 ;end elseif (v86>4) then local v196;local v197;local v198,v199;local v200;v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v200=v85[2];v83[v200]=v83[v200](v83[v200 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v200=v85[2];v198,v199=v76(v83[v200](v83[v200 + 1 ]));v78=(v199 + v200) -1 ;v197=0;for v304=v200,v78 do v197=v197 + 1 ;v83[v304]=v198[v197];end v77=v77 + 1 ;v85=v73[v77];v200=v85[2];v196=v83[v200];for v307=v200 + 1 ,v78 do v7(v196,v83[v307]);end elseif ((v85[3]=="_ENV") or (v85[3]=="getfenv")) then v83[v85[2]]=v59;else v83[v85[2]]=v59[v85[3]];end elseif (v86<=8) then if (v86<=6) then local v125;local v126;v126=v85[2];v125=v83[v85[3]];v83[v126 + 1 ]=v125;v83[v126]=v125[v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];for v170=v85[2],v85[3] do v83[v170]=nil;end v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v126=v85[2];do return v83[v126](v13(v83,v126 + 1 ,v85[3]));end v77=v77 + 1 ;v85=v73[v77];v126=v85[2];do return v13(v83,v126,v78);end elseif (v86>7) then local v207=v85[2];local v208=v83[v207];for v308=v207 + 1 ,v78 do v7(v208,v83[v308]);end else local v209=v85[2];local v210,v211=v76(v83[v209](v83[v209 + 1 ]));v78=(v211 + v209) -1 ;local v212=0;for v309=v209,v78 do v212=v212 + 1 ;v83[v309]=v210[v212];end end elseif (v86<=9) then v83[v85[2]]=v83[v85[3]][v83[v85[4]]];elseif (v86==10) then local v213;local v214;v83[v85[2]]=v58[v85[3]];v77=v77 + 1 ;v85=v73[v77];v214=v85[2];v213=v83[v85[3]];v83[v214 + 1 ]=v213;v83[v214]=v213[v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];for v312=v85[2],v85[3] do v83[v312]=nil;end v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v214=v85[2];v83[v214]=v83[v214](v13(v83,v214 + 1 ,v85[3]));v77=v77 + 1 ;v85=v73[v77];if v83[v85[2]] then v77=v77 + 1 ;else v77=v85[3];end else local v223;local v224;v224=v85[2];v223=v83[v85[3]];v83[v224 + 1 ]=v223;v83[v224]=v223[v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v224=v85[2];v83[v224]=v83[v224](v13(v83,v224 + 1 ,v85[3]));v77=v77 + 1 ;v85=v73[v77];if (v85[2]<v83[v85[4]]) then v77=v85[3];else v77=v77 + 1 ;end end elseif (v86<=17) then if (v86<=14) then if (v86<=12) then local v136=v74[v85[3]];local v137;local v138={};v137=v10({},{__index=function(v172,v173)local v174=v138[v173];return v174[1][v174[2]];end,__newindex=function(v175,v176,v177)local v178=v138[v176];v178[1][v178[2]]=v177;end});for v180=1,v85[4] do v77=v77 + 1 ;local v181=v73[v77];if (v181[1]==43) then v138[v180-1 ]={v83,v181[3]};else v138[v180-1 ]={v58,v181[3]};end v82[ #v82 + 1 ]=v138;end v83[v85[2]]=v29(v136,v137,v59);elseif (v86>13) then local v232=v85[2];v83[v232]=v83[v232](v83[v232 + 1 ]);else v83[v85[2]]= not v83[v85[3]];end elseif (v86<=15) then v83[v85[2]]=v83[v85[3]][v85[4]];elseif (v86>16) then if  not v83[v85[2]] then v77=v77 + 1 ;else v77=v85[3];end else v83[v85[2]]=v85[3]~=0 ;end elseif (v86<=20) then if (v86<=18) then for v183=v85[2],v85[3] do v83[v183]=nil;end elseif (v86>19) then v83[v85[2]]=v85[3];else v77=v85[3];end elseif (v86<=22) then if (v86==21) then if (v85[2]<v83[v85[4]]) then v77=v85[3];else v77=v77 + 1 ;end else local v239=v85[2];local v240=v83[v239];local v241=v85[3];for v316=1,v241 do v240[v316]=v83[v239 + v316 ];end end elseif (v86>23) then local v242;local v243;v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v243=v85[2];v242=v83[v85[3]];v83[v243 + 1 ]=v242;v83[v243]=v242[v85[4]];v77=v77 + 1 ;v85=v73[v77];v243=v85[2];v83[v243]=v83[v243](v83[v243 + 1 ]);v77=v77 + 1 ;v85=v73[v77];if (v83[v85[2]]<v85[4]) then v77=v77 + 1 ;else v77=v85[3];end else local v252=v85[2];local v253=v83[v252];local v254=v83[v252 + 2 ];if (v254>0) then if (v253>v83[v252 + 1 ]) then v77=v85[3];else v83[v252 + 3 ]=v253;end elseif (v253<v83[v252 + 1 ]) then v77=v85[3];else v83[v252 + 3 ]=v253;end end elseif (v86<=36) then if (v86<=30) then if (v86<=27) then if (v86<=25) then local v142=v85[2];local v143=v83[v142];for v185=v142 + 1 ,v85[3] do v7(v143,v83[v185]);end elseif (v86==26) then local v255=v85[2];local v256={};for v319=1, #v82 do local v320=v82[v319];for v329=0, #v320 do local v330=v320[v329];local v331=v330[1];local v332=v330[2];if ((v331==v83) and (v332>=v255)) then v256[v332]=v331[v332];v330[1]=v256;end end end else v83[v85[2]]=v29(v74[v85[3]],nil,v59);end elseif (v86<=28) then local v144;local v145;local v146;v83[v85[2]]=v83[v85[3]][v83[v85[4]]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]= #v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v146=v85[2];v145=v83[v146];v144=v83[v146 + 2 ];if (v144>0) then if (v145>v83[v146 + 1 ]) then v77=v85[3];else v83[v146 + 3 ]=v145;end elseif (v145<v83[v146 + 1 ]) then v77=v85[3];else v83[v146 + 3 ]=v145;end elseif (v86==29) then local v258;if ((v85[3]=="_ENV") or (v85[3]=="getfenv")) then v83[v85[2]]=v59;else v83[v85[2]]=v59[v85[3]];end v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]={};v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]={};v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v258=v85[2];v83[v258]=v83[v258](v83[v258 + 1 ]);else local v266=v85[2];local v267=v83[v85[3]];v83[v266 + 1 ]=v267;v83[v266]=v267[v85[4]];end elseif (v86<=33) then if (v86<=31) then local v154;local v155;local v156,v157;local v158;v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v158=v85[2];v83[v158]=v83[v158](v83[v158 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v158=v85[2];v83[v158]=v83[v158](v83[v158 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v158=v85[2];v156,v157=v76(v83[v158](v83[v158 + 1 ]));v78=(v157 + v158) -1 ;v155=0;for v186=v158,v78 do v155=v155 + 1 ;v83[v186]=v156[v155];end v77=v77 + 1 ;v85=v73[v77];v158=v85[2];v154=v83[v158];for v189=v158 + 1 ,v78 do v7(v154,v83[v189]);end elseif (v86>32) then if v83[v85[2]] then v77=v77 + 1 ;else v77=v85[3];end elseif (v83[v85[2]]~=v85[4]) then v77=v77 + 1 ;else v77=v85[3];end elseif (v86<=34) then local v165=v85[2];do return v83[v165](v13(v83,v165 + 1 ,v85[3]));end elseif (v86>35) then if (v83[v85[2]]==v85[4]) then v77=v77 + 1 ;else v77=v85[3];end else local v271=v85[2];v83[v271]=v83[v271](v13(v83,v271 + 1 ,v85[3]));end elseif (v86<=42) then if (v86<=39) then if (v86<=37) then v83[v85[2]]=v58[v85[3]];elseif (v86>38) then if (v83[v85[2]]<v85[4]) then v77=v77 + 1 ;else v77=v85[3];end else v83[v85[2]]= #v83[v85[3]];end elseif (v86<=40) then do return v83[v85[2]];end elseif (v86>41) then v83[v85[2]][v85[3]]=v83[v85[4]];else local v276;local v277;v277=v85[2];v276=v83[v85[3]];v83[v277 + 1 ]=v276;v83[v277]=v276[v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v277=v85[2];v83[v277]=v83[v277](v13(v83,v277 + 1 ,v85[3]));v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]= not v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];do return v83[v85[2]];end v77=v77 + 1 ;v85=v73[v77];do return;end end elseif (v86<=45) then if (v86<=43) then v83[v85[2]]=v83[v85[3]];elseif (v86>44) then do return;end else local v285;local v286;v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]][v85[4]];v77=v77 + 1 ;v85=v73[v77];v286=v85[2];v285=v83[v85[3]];v83[v286 + 1 ]=v285;v83[v286]=v285[v85[4]];v77=v77 + 1 ;v85=v73[v77];v286=v85[2];v83[v286]=v83[v286](v83[v286 + 1 ]);v77=v77 + 1 ;v85=v73[v77];if (v83[v85[2]]<v85[4]) then v77=v85[3];else v77=v77 + 1 ;end end elseif (v86<=47) then if (v86==46) then v83[v85[2]]=v85[3]~=0 ;v77=v77 + 1 ;else local v296=v85[2];do return v13(v83,v296,v78);end end elseif (v86==48) then if (v83[v85[2]]<v85[4]) then v77=v85[3];else v77=v77 + 1 ;end else local v297;v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v297=v85[2];v83[v297]=v83[v297](v83[v297 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v297=v85[2];v83[v297]=v83[v297](v83[v297 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];v77=v77 + 1 ;v85=v73[v77];v297=v85[2];v83[v297]=v83[v297](v83[v297 + 1 ]);v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v83[v85[3]];v77=v77 + 1 ;v85=v73[v77];v83[v85[2]]=v85[3];end v77=v77 + 1 ;end end;end return v29(v28(),{},v17)(...);end v15("LOL!123O0003023O0057522O033O0061706903043O00756E697403063O00706C6179657203053O007370652O6C025O00E09B40024O00701FFC40024O00801FC640024O00901FFC40025O005FB440024O00801FFC40024O0070A20641024O00F008F940024O000CF21641025O00CDEC40030E3O00537465616C746852656D61696E7303093O00537465616C74685570030B3O00537465616C7468446F776E00363O00121D3O00013O00206O000200202O00013O000300202O00020001000400202O00033O00054O000400036O000500046O000600033O00122O000700066O0006000200022O002B000700033O001231000800076O0007000200024O000800033O00122O000900086O0008000200024O000900033O00122O000A00096O0009000200024O000A00033O00122O000B000A4O0007000A000B4O000800053O00014O000600024O001F000700033O00122O0008000B6O0007000200024O000800033O00122O0009000C6O0008000200024O000900033O00122O000A000D6O0009000A6O00063O00014O000700014O0005000800033O00122O0009000E6O0008000200024O000900033O00122O000A000F6O0009000A6O00073O00012O001600040003000100060C00053O000100032O002B3O00034O002B3O00044O002B3O00023O00102A00020010000500021B000500013O00102A00020011000500021B000500023O00102A0002001200052O001A00046O002D3O00013O00033O00103O0003053O00726F67756503073O00636F2O6D6F6E73030B3O00736861646F7744616E636503113O0054696D6553696E63654C61737443617374026O33D33F03063O0076616E697368030A3O00736861646F776D656C64026O00F03F03053O00647275696403053O00666572616C030B3O00696E6361726E6174696F6E027O0040026O00084003063O0042752O665570030B3O0042752O6652656D61696E73028O0004654O002500045O00200F0004000400010006210004002200013O0004133O002200010006210001001600013O0004133O001600012O002500045O00202C00040004000100202O00040004000200202O00040004000300202O0004000400044O00040002000200262O00040020000100050004133O002000012O002500045O00202C00040004000100202O00040004000200202O00040004000600202O0004000400044O00040002000200262O00040020000100050004133O002000010006210002002200013O0004133O002200012O002500045O00201800040004000100202O00040004000200202O00040004000700202O0004000400044O00040002000200262O00040022000100050004133O00220001001214000400084O0028000400024O002500045O00200F0004000400090006210004003B00013O0004133O003B00012O002500045O00200F00040004000900200F00040004000A0006210004003B00013O0004133O003B00010006210001003200013O0004133O0032000100200F00050004000B00201E0005000500042O000E00050002000200263000050039000100050004133O003900010006210002003B00013O0004133O003B000100200F00050004000700201E0005000500042O000E0005000200020026270005003B000100050004133O003B0001001214000500084O0028000500023O001214000400084O0025000500014O0026000500053O001214000600083O0004170004006200010026200007004A000100080004133O004A0001002624000700460001000C0004133O004600010006110001004A000100010004133O004A0001002624000700610001000D0004133O006100010006210002006100013O0004133O006100012O0025000800014O001C00080008000700122O000900086O000A00083O00122O000B00083O00042O0009006100012O0009000D0008000C2O000A000E00023O00202O000E000E000E4O0010000D6O001100116O001200036O000E0012000200062O000E006000013O0004133O006000012O0025000E00023O002006000E000E000F4O0010000D6O001100116O001200036O000E00126O000E5O000402000900500001000402000400400001001214000400104O0028000400024O002D3O00017O00023O00030E3O00537465616C746852656D61696E73028O00040B3O00200B00043O00014O000600016O000700026O000800036O000400080002000E2O00020008000100040004133O000800012O002E00046O0010000400014O0028000400024O002D3O00017O00013O0003093O00537465616C7468557004083O00202900043O00014O000600016O000700026O000800036O0004000800024O000400046O000400028O00017O00",v9(),...);
+local StrToNumber = tonumber;
+local Byte = string.byte;
+local Char = string.char;
+local Sub = string.sub;
+local Subg = string.gsub;
+local Rep = string.rep;
+local Concat = table.concat;
+local Insert = table.insert;
+local LDExp = math.ldexp;
+local GetFEnv = getfenv or function()
+	return _ENV;
+end;
+local Setmetatable = setmetatable;
+local PCall = pcall;
+local Select = select;
+local Unpack = unpack or table.unpack;
+local ToNumber = tonumber;
+local function VMCall(ByteString, vmenv, ...)
+	local DIP = 1;
+	local repeatNext;
+	ByteString = Subg(Sub(ByteString, 5), "..", function(byte)
+		if (Byte(byte, 2) == 79) then
+			repeatNext = StrToNumber(Sub(byte, 1, 1));
+			return "";
+		else
+			local a = Char(StrToNumber(byte, 16));
+			if repeatNext then
+				local b = Rep(a, repeatNext);
+				repeatNext = nil;
+				return b;
+			else
+				return a;
+			end
+		end
+	end);
+	local function gBit(Bit, Start, End)
+		if End then
+			local Res = (Bit / (2 ^ (Start - 1))) % (2 ^ (((End - 1) - (Start - 1)) + 1));
+			return Res - (Res % 1);
+		else
+			local Plc = 2 ^ (Start - 1);
+			return (((Bit % (Plc + Plc)) >= Plc) and 1) or 0;
+		end
+	end
+	local function gBits8()
+		local a = Byte(ByteString, DIP, DIP);
+		DIP = DIP + 1;
+		return a;
+	end
+	local function gBits16()
+		local a, b = Byte(ByteString, DIP, DIP + 2);
+		DIP = DIP + 2;
+		return (b * 256) + a;
+	end
+	local function gBits32()
+		local a, b, c, d = Byte(ByteString, DIP, DIP + 3);
+		DIP = DIP + 4;
+		return (d * 16777216) + (c * 65536) + (b * 256) + a;
+	end
+	local function gFloat()
+		local Left = gBits32();
+		local Right = gBits32();
+		local IsNormal = 1;
+		local Mantissa = (gBit(Right, 1, 20) * (2 ^ 32)) + Left;
+		local Exponent = gBit(Right, 21, 31);
+		local Sign = ((gBit(Right, 32) == 1) and -1) or 1;
+		if (Exponent == 0) then
+			if (Mantissa == 0) then
+				return Sign * 0;
+			else
+				Exponent = 1;
+				IsNormal = 0;
+			end
+		elseif (Exponent == 2047) then
+			return ((Mantissa == 0) and (Sign * (1 / 0))) or (Sign * NaN);
+		end
+		return LDExp(Sign, Exponent - 1023) * (IsNormal + (Mantissa / (2 ^ 52)));
+	end
+	local function gString(Len)
+		local Str;
+		if not Len then
+			Len = gBits32();
+			if (Len == 0) then
+				return "";
+			end
+		end
+		Str = Sub(ByteString, DIP, (DIP + Len) - 1);
+		DIP = DIP + Len;
+		local FStr = {};
+		for Idx = 1, #Str do
+			FStr[Idx] = Char(Byte(Sub(Str, Idx, Idx)));
+		end
+		return Concat(FStr);
+	end
+	local gInt = gBits32;
+	local function _R(...)
+		return {...}, Select("#", ...);
+	end
+	local function Deserialize()
+		local Instrs = {};
+		local Functions = {};
+		local Lines = {};
+		local Chunk = {Instrs,Functions,nil,Lines};
+		local ConstCount = gBits32();
+		local Consts = {};
+		for Idx = 1, ConstCount do
+			local Type = gBits8();
+			local Cons;
+			if (Type == 1) then
+				Cons = gBits8() ~= 0;
+			elseif (Type == 2) then
+				Cons = gFloat();
+			elseif (Type == 3) then
+				Cons = gString();
+			end
+			Consts[Idx] = Cons;
+		end
+		Chunk[3] = gBits8();
+		for Idx = 1, gBits32() do
+			local Descriptor = gBits8();
+			if (gBit(Descriptor, 1, 1) == 0) then
+				local Type = gBit(Descriptor, 2, 3);
+				local Mask = gBit(Descriptor, 4, 6);
+				local Inst = {gBits16(),gBits16(),nil,nil};
+				if (Type == 0) then
+					Inst[3] = gBits16();
+					Inst[4] = gBits16();
+				elseif (Type == 1) then
+					Inst[3] = gBits32();
+				elseif (Type == 2) then
+					Inst[3] = gBits32() - (2 ^ 16);
+				elseif (Type == 3) then
+					Inst[3] = gBits32() - (2 ^ 16);
+					Inst[4] = gBits16();
+				end
+				if (gBit(Mask, 1, 1) == 1) then
+					Inst[2] = Consts[Inst[2]];
+				end
+				if (gBit(Mask, 2, 2) == 1) then
+					Inst[3] = Consts[Inst[3]];
+				end
+				if (gBit(Mask, 3, 3) == 1) then
+					Inst[4] = Consts[Inst[4]];
+				end
+				Instrs[Idx] = Inst;
+			end
+		end
+		for Idx = 1, gBits32() do
+			Functions[Idx - 1] = Deserialize();
+		end
+		return Chunk;
+	end
+	local function Wrap(Chunk, Upvalues, Env)
+		local Instr = Chunk[1];
+		local Proto = Chunk[2];
+		local Params = Chunk[3];
+		return function(...)
+			local Instr = Instr;
+			local Proto = Proto;
+			local Params = Params;
+			local _R = _R;
+			local VIP = 1;
+			local Top = -1;
+			local Vararg = {};
+			local Args = {...};
+			local PCount = Select("#", ...) - 1;
+			local Lupvals = {};
+			local Stk = {};
+			for Idx = 0, PCount do
+				if (Idx >= Params) then
+					Vararg[Idx - Params] = Args[Idx + 1];
+				else
+					Stk[Idx] = Args[Idx + 1];
+				end
+			end
+			local Varargsz = (PCount - Params) + 1;
+			local Inst;
+			local Enum;
+			while true do
+				Inst = Instr[VIP];
+				Enum = Inst[1];
+				if (Enum <= 2) then
+					if (Enum <= 0) then
+						local VA;
+						local A;
+						if ((Inst[3] == "_ENV") or (Inst[3] == "getfenv")) then
+							Stk[Inst[2]] = Env;
+						else
+							Stk[Inst[2]] = Env[Inst[3]];
+						end
+						VIP = VIP + 1;
+						Inst = Instr[VIP];
+						Stk[Inst[2]] = Inst[3];
+						VIP = VIP + 1;
+						Inst = Instr[VIP];
+						A = Inst[2];
+						Stk[A] = Stk[A](Stk[A + 1]);
+						VIP = VIP + 1;
+						Inst = Instr[VIP];
+						A = Inst[2];
+						Top = (A + Varargsz) - 1;
+						for Idx = A, Top do
+							VA = Vararg[Idx - A];
+							Stk[Idx] = VA;
+						end
+						VIP = VIP + 1;
+						Inst = Instr[VIP];
+						A = Inst[2];
+						Stk[A](Unpack(Stk, A + 1, Top));
+						VIP = VIP + 1;
+						Inst = Instr[VIP];
+						do
+							return;
+						end
+					elseif (Enum == 1) then
+						Stk[Inst[2]] = Inst[3];
+					else
+						local A = Inst[2];
+						Top = (A + Varargsz) - 1;
+						for Idx = A, Top do
+							local VA = Vararg[Idx - A];
+							Stk[Idx] = VA;
+						end
+					end
+				elseif (Enum <= 4) then
+					if (Enum == 3) then
+						local A = Inst[2];
+						Stk[A](Unpack(Stk, A + 1, Top));
+					else
+						do
+							return;
+						end
+					end
+				elseif (Enum == 5) then
+					if ((Inst[3] == "_ENV") or (Inst[3] == "getfenv")) then
+						Stk[Inst[2]] = Env;
+					else
+						Stk[Inst[2]] = Env[Inst[3]];
+					end
+				else
+					local A = Inst[2];
+					Stk[A] = Stk[A](Stk[A + 1]);
+				end
+				VIP = VIP + 1;
+			end
+		end;
+	end
+	return Wrap(Deserialize(), {}, vmenv)(...);
+end
+VMCall("LOL!023O00030A3O006C6F6164737472696E6703BA082O006C6F63616C20617069203D2057522E6170690D0A6C6F63616C20756E6974203D206170692E756E69740D0A6C6F63616C20706C61796572203D20756E69742E706C617965720D0A6C6F63616C207370652O6C203D206170692E7370652O6C0D0A0D0A646F0D0A2O206C6F63616C20737465616C74685370652O6C73427954797065203D207B0D0A4O207B0D0A6O202O2D20526F6775650D0A6O207370652O6C2831373834292C202O2D20537465616C74680D0A6O207370652O6C282O3135313931292C202O2D20537465616C746820772F20537562746572667567652054616C656E740D0A6O207370652O6C282O31333237292C202O2D2056616E6973680D0A6O207370652O6C282O3135313933292C202O2D2056616E69736820772F20537562746572667567652054616C656E740D0A6O202O2D20466572616C0D0A6O207370652O6C283532313529202O2D2050726F776C0D0A4O207D2C0D0A4O202O2D20436F6D62617420537465616C74680D0A4O207B0D0A6O202O2D20526F6775650D0A6O207370652O6C282O3135313932292C202O2D20537562746572667567652042752O660D0A6O207370652O6C28313835342O32292C202O2D20537465616C74682066726F6D20536861646F772044616E63650D0A6O202O2D2044727569640D0A6O207370652O6C2831303235343329202O2D20496E6361726E6174696F6E3A204B696E67206F6620746865204A756E676C650D0A4O207D2C0D0A4O202O2D205370656369616C20537465616C74680D0A4O207B0D0A6O202O2D20526F6775650D0A6O207370652O6C28333735393339292C202O2D20536570736973207374616E6365206D61736B2062752O660D0A6O202O2D204E6967687420456C660D0A6O207370652O6C28353839383429202O2D20536861646F776D656C640D0A4O207D0D0A2O207D0D0A0D0A2O2066756E6374696F6E20706C617965723A537465616C746852656D61696E7328636865636B436F6D6261742C20636865636B5370656369616C2C20627970612O735265636F76657279290D0A4O206966207370652O6C2E726F677565207468656E0D0A6O2069662028636865636B436F6D62617420616E6420287370652O6C2E726F6775652E636F2O6D6F6E732E736861646F7744616E63653A54696D6553696E63654C617374436173742829203C20302E33206F72207370652O6C2E726F6775652E636F2O6D6F6E732E76616E6973683A54696D6553696E63654C617374436173742829203C20302E332O290D0A8O206F722028636865636B5370656369616C20616E64207370652O6C2E726F6775652E636F2O6D6F6E732E736861646F776D656C643A54696D6553696E63654C617374436173742829203C20302E3329207468656E0D0A9O202072657475726E20310D0A6O20656E640D0A4O20656E640D0A0D0A4O206966207370652O6C2E6472756964207468656E0D0A6O206C6F63616C20666572616C203D207370652O6C2E64727569642E666572616C0D0A0D0A6O20696620666572616C207468656E0D0A8O2069662028636865636B436F6D62617420616E6420666572616C2E696E6361726E6174696F6E3A54696D6553696E63654C617374436173742829203C20302E33290D0A9O20206F722028636865636B5370656369616C20616E6420666572616C2E736861646F776D656C643A54696D6553696E63654C617374436173742829203C20302E3329207468656E0D0A9O202072657475726E20310D0A8O20656E640D0A6O20656E640D0A4O20656E640D0A0D0A4O20666F722069203D20312C2023737465616C74685370652O6C7342795479706520646F0D0A6O2069662069202O3D2031206F72202869202O3D203220616E6420636865636B436F6D62617429206F72202869202O3D203320616E6420636865636B5370656369616C29207468656E0D0A8O206C6F63616C20737465616C74685370652O6C73203D20737465616C74685370652O6C734279547970655B695D0D0A8O20666F72206A203D20312C2023737465616C74685370652O6C7320646F0D0A9O20206C6F63616C20737465616C74685370652O6C203D20737465616C74685370652O6C735B6A5D0D0A9O2020696620706C617965723A42752O66557028737465616C74685370652O6C2C206E696C2C20627970612O735265636F7665727929207468656E0D0A9O203O2072657475726E20706C617965723A42752O6652656D61696E7328737465616C74685370652O6C2C206E696C2C20627970612O735265636F76657279290D0A9O2020656E640D0A8O20656E640D0A6O20656E640D0A4O20656E640D0A0D0A4O2072657475726E20300D0A2O20656E640D0A0D0A2O2066756E6374696F6E20706C617965723A537465616C7468557028636865636B436F6D6261742C20636865636B5370656369616C2C20627970612O735265636F76657279290D0A4O2072657475726E2073656C663A537465616C746852656D61696E7328636865636B436F6D6261742C20636865636B5370656369616C2C20627970612O735265636F7665727929203E20300D0A2O20656E640D0A0D0A2O2066756E6374696F6E20706C617965723A537465616C7468446F776E28636865636B436F6D6261742C20636865636B5370656369616C2C20627970612O735265636F76657279290D0A4O2072657475726E206E6F742073656C663A537465616C7468557028636865636B436F6D6261742C20636865636B5370656369616C2C20627970612O735265636F76657279290D0A2O20656E640D0A656E640D0A00063O00124O00013O00122O000100028O000200024O00019O003O00016O00017O00", GetFEnv(), ...);
