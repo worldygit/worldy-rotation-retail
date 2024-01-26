@@ -128,6 +128,7 @@ Rotations\Rogue\Assassination.lua
 Rotations\Rogue\Outlaw.lua
 Rotations\Rogue\OutlawSnewy.lua
 Rotations\Rogue\Subtlety.lua
+Rotations\Rogue\SubtletySnewy.lua
 
 Rotations\Shaman\Main.lua
 Rotations\Shaman\Elemental.lua
