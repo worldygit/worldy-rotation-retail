@@ -7,7 +7,7 @@ local LibStub = LibStub
 local gui = LibStub("WorldyAceGUI-3.0")
 local reg = LibStub("AceConfigRegistry-3.0")
 
-local MAJOR, MINOR = "AceConfigDialog-3.0", 86
+local MAJOR, MINOR = "WorldyAceConfigDialog-3.0", 86
 local AceConfigDialog, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 
 if not AceConfigDialog then return end
