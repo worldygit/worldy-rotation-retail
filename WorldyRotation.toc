@@ -10,14 +10,14 @@
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Libs\AceAddon-3.0\AceAddon-3.0.xml
-Libs\AceEvent-3.0\AceEvent-3.0.xml
-Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\WorldyAceAddon-3.0\WorldyAceAddon-3.0.xml
+Libs\WorldyAceEvent-3.0\WorldyAceEvent-3.0.xml
+Libs\WorldyAceDB-3.0\WorldyAceDB-3.0.xml
 Libs\WorldyAceDBOptions-3.0\WorldyAceDBOptions-3.0.xml
-Libs\AceConsole-3.0\AceConsole-3.0.xml
+Libs\WorldyAceConsole-3.0\WorldyAceConsole-3.0.xml
 Libs\WorldyAceGUI-3.0\WorldyAceGUI-3.0.xml
-Libs\AceConfig-3.0\AceConfig-3.0.xml
-Libs\AceSerializer-3.0\AceSerializer-3.0.xml
+Libs\WorldyAceConfig-3.0\WorldyAceConfig-3.0.xml
+Libs\WorldyAceSerializer-3.0\WorldyAceSerializer-3.0.xml
 
 Main.lua
 
