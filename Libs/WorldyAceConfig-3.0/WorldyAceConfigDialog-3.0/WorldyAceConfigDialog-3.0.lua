@@ -1269,7 +1269,7 @@ local function FeedOptions(appName, options,container,rootframe,path,group,inlin
 						control:ResumeLayout()
 						control:DoLayout()
 					else
-						control = CreateControl(v.dialogControl or v.control, "Dropdown")
+						control = CreateControl(v.dialogControl or v.control, "WorldyDropdown")
 						local itemType = v.itemControl
 						if itemType and not gui:GetWidgetVersion(itemType) then
 							geterrorhandler()(("Invalid Custom Item Type - %s"):format(tostring(itemType)))

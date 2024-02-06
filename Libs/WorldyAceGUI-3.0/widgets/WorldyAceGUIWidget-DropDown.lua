@@ -346,7 +346,7 @@ do
 end
 
 do
-	local widgetType = "Dropdown"
+	local widgetType = "WorldyDropdown"
 	local widgetVersion = 36
 
 	--[[ Static data ]]--
